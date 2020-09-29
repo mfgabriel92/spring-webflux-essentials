@@ -21,10 +21,10 @@ public class AnimeService {
     public Mono<Anime> findById(Integer id) {
         return repository
             .findById(id)
-            .switchIfEmpty(notFound());
+            .switchIfEmpty(notFound(id));
     }
     
-    private <T> Mono<T> notFound() {
-        return Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Anime not found"));
+    private <T> Mono<T> notFound(Integer id) {
+        return Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Anime ID %s not found", id)));
     }
 }

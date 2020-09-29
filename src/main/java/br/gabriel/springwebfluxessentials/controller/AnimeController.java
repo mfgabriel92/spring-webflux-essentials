@@ -37,4 +37,10 @@ public class AnimeController {
     public Mono<Void> save(@PathVariable Integer id, @Valid @RequestBody Anime anime) {
         return service.save(id, anime);
     }
+    
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> deleteById(@PathVariable Integer id) {
+        return service.delete(id);
+    }
 }

@@ -35,6 +35,12 @@ public class AnimeService {
             .then();
     }
     
+    public Mono<Void> delete(Integer id) {
+        return findById(id)
+            .flatMap(repository::delete)
+            .then();
+    }
+    
     private <T> Mono<T> notFound(Integer id) {
         return Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Anime ID %s not found", id)));
     }

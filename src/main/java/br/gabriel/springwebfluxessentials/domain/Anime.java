@@ -4,7 +4,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +16,6 @@ public class Anime {
     @Id
     private Integer id;
     
-    @NotNull(message = "The name must be filled")
+    @NotBlank(message = "The name must be filled")
     private String name;
 }

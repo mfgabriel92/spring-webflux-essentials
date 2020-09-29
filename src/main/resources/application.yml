@@ -3,3 +3,9 @@ spring:
     url: r2dbc:postgresql://localhost:5432/webflux?schema=public
     username: postgres
     password: root
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
